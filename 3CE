@@ -1,11 +1,9 @@
 import csv
-a = []
-print("/n The Given Training Data Set")
-with open('dataset.csv') as csvFile:
-    reader = csv.reader(csvFile)
-    for row in reader:
-        a.append(row)
-        print(row)
+import pandas as pd
+df = pd.read_csv('tennisdata.csv')
+print("The Given Training Data Set:")
+print(df)
+a = df.values.tolist()
 numatt = len(a[0]) - 1
 print("\n The initial value of hypothesis: ") 
 S = ['0'] * numatt
@@ -40,4 +38,4 @@ for i in range(0, len(a)):
                 G = ['?'] * numatt
         print("------------------------------------------------------------------------------------------------------------------------")
         print("For Training Example No :{0} the hypothesis is S{0} ".format(i + 1), S)
-        print("For Training Example No :{0} the hypothesis is G{0}".format(i + 1), temp)         
+        print("For Training Example No :{0} the hypothesis is G{0}".format(i + 1), temp)
